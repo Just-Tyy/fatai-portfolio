@@ -1,0 +1,1450 @@
+/*=================
+   KOMOLAFE PORTFOLIO — RESPONSIVE LOCK PASS
+   --------------------------------------------------------------------------
+   IMPORTANT:
+   - Visual identity is LOCKED.
+   - This layer changes only responsive layout, spacing, wrapping and sizing.
+   - It is intentionally imported LAST.
+  ================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+main,
+section,
+article,
+aside,
+header,
+footer,
+nav,
+div {
+  min-width: 0;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Global fluid shell
+   -------------------------------------------------------------------------- */
+
+:root {
+  --responsive-gutter: clamp(18px, 2.4vw, 40px);
+}
+
+.section-shell,
+.smart-nav-shell {
+  width: min(
+    calc(100% - (var(--responsive-gutter) * 2)),
+    var(--container)
+  );
+  margin-inline: auto;
+}
+
+/* --------------------------------------------------------------------------
+   Navbar / topbar
+   -------------------------------------------------------------------------- */
+
+.smart-nav-shell {
+  min-height: clamp(68px, 5.2vw, 80px);
+  gap: clamp(10px, 1.6vw, 24px);
+}
+
+.smart-signature {
+  flex: 0 0 auto;
+}
+
+.smart-nav-actions {
+  flex: 0 0 auto;
+}
+
+.nav-contact-cta,
+.theme-trigger,
+.nav-menu-button,
+.current-section-chip {
+  white-space: nowrap;
+}
+
+.smart-desktop-nav {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.smart-desktop-nav a {
+  white-space: nowrap;
+}
+
+/* If content-aware JS collapses the nav, the controls must still fit cleanly. */
+.current-section-chip {
+  max-width: min(180px, 28vw);
+}
+
+.smart-mobile-nav {
+  width: min(
+    calc(100% - (var(--responsive-gutter) * 2)),
+    var(--container)
+  );
+  margin-inline: auto;
+}
+
+.smart-mobile-contact {
+  width: 100%;
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+
+.hero-v2 {
+  padding-top: clamp(30px, 4vw, 64px);
+}
+
+.hero-layout {
+  align-items: center;
+  gap: clamp(28px, 3vw, 52px);
+}
+
+.hero-copy,
+.hero-visual-wrap {
+  min-width: 0;
+}
+
+.hero h1 {
+  max-width: 100%;
+  text-wrap: balance;
+}
+
+.hero-intro {
+  max-width: 720px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-actions .button,
+.hero-actions button {
+  white-space: nowrap;
+}
+
+.availability {
+  max-width: 100%;
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   Hero system / HOW I BUILD
+   -------------------------------------------------------------------------- */
+
+.hero-system-ux {
+  min-width: 0;
+}
+
+.hero-system-header-ux {
+  gap: 18px;
+}
+
+.hero-system-stage-ux {
+  min-height: auto;
+}
+
+.pipeline-grid-ux {
+  min-width: 0;
+}
+
+.pipeline-node-ux {
+  min-width: 0;
+}
+
+.pipeline-node-ux strong,
+.pipeline-node-ux small {
+  overflow-wrap: anywhere;
+}
+
+.hero-system-detail {
+  min-width: 0;
+}
+
+.hero-system-detail p {
+  min-width: 0;
+}
+
+.system-kpi-row-ux > div {
+  min-width: 0;
+}
+
+.system-kpi-row-ux strong {
+  overflow-wrap: anywhere;
+}
+
+/* --------------------------------------------------------------------------
+   Quick scan modal
+   -------------------------------------------------------------------------- */
+
+.quick-scan-backdrop {
+  padding: clamp(8px, 2vw, 24px);
+}
+
+.quick-scan-panel-v4 {
+  width: min(980px, 100%);
+  max-height: calc(100dvh - clamp(16px, 4vw, 48px));
+}
+
+.quick-scan-content {
+  min-width: 0;
+}
+
+.quick-scan-copy,
+.quick-scan-proof,
+.quick-scan-footer {
+  min-width: 0;
+}
+
+.quick-scan-copy h2 {
+  text-wrap: balance;
+}
+
+.quick-scan-actions {
+  min-width: 0;
+}
+
+.quick-scan-actions .button {
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Credibility rail
+   -------------------------------------------------------------------------- */
+
+.credibility-inner {
+  gap: 12px 24px;
+}
+
+.credibility-inner span {
+  white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   Intro / headings
+   -------------------------------------------------------------------------- */
+
+.section-heading-row {
+  gap: 24px;
+}
+
+.section-heading-row > * {
+  min-width: 0;
+}
+
+.section-heading-row h2,
+.intro-section-v2 h2,
+.thinking-section-v2 h2,
+.capability-section-v2 h2,
+.about-preview-v2 h2 {
+  max-width: 100%;
+  text-wrap: balance;
+}
+
+.section-note {
+  flex: 0 1 280px;
+}
+
+/* --------------------------------------------------------------------------
+   Selected systems
+   -------------------------------------------------------------------------- */
+
+.project-main-grid {
+  min-width: 0;
+}
+
+.project-copy,
+.project-visual {
+  min-width: 0;
+}
+
+.project-copy h3 {
+  max-width: 100%;
+  text-wrap: balance;
+}
+
+.metric-row {
+  min-width: 0;
+}
+
+.metric {
+  min-width: 0;
+}
+
+.metric strong,
+.metric span {
+  overflow-wrap: anywhere;
+}
+
+.project-action-row-ux {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+}
+
+.project-action {
+  min-width: 0;
+}
+
+.project-action .text-link {
+  white-space: nowrap;
+}
+
+.flow-list-v2 {
+  min-width: 0;
+}
+
+.flow-node-v2 {
+  min-width: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Thinking / capabilities
+   -------------------------------------------------------------------------- */
+
+.thinking-grid-v2 {
+  min-width: 0;
+}
+
+.thinking-card-v2 {
+  min-width: 0;
+}
+
+.capability-row-v2 {
+  min-width: 0;
+}
+
+.capability-row-v2 h3,
+.capability-row-v2 p {
+  min-width: 0;
+}
+
+/* --------------------------------------------------------------------------
+   About / CTA
+   -------------------------------------------------------------------------- */
+
+.about-preview-grid {
+  min-width: 0;
+}
+
+.about-preview-grid > * {
+  min-width: 0;
+}
+
+.cta-panel-v2 {
+  gap: clamp(28px, 4vw, 60px);
+}
+
+.cta-panel-v2 > * {
+  min-width: 0;
+}
+
+.cta-actions {
+  flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cta-actions .button {
+  white-space: nowrap;
+}
+
+/* Fix the specific cramped "Start a conversation" regression. */
+.cta-actions .button-primary {
+  min-width: max-content;
+  padding-inline: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+.footer-inner {
+  gap: 24px;
+}
+
+.footer-inner > * {
+  min-width: 0;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+}
+
+/* --------------------------------------------------------------------------
+   About page
+   -------------------------------------------------------------------------- */
+
+.page-shell {
+  min-width: 0;
+}
+
+.page-title {
+  max-width: 100%;
+  text-wrap: balance;
+}
+
+.about-story-grid,
+.about-principles,
+.about-cta {
+  min-width: 0;
+}
+
+.about-story-grid > *,
+.about-principles > *,
+.about-cta > * {
+  min-width: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Contact page
+   -------------------------------------------------------------------------- */
+
+.contact-grid {
+  min-width: 0;
+}
+
+.contact-card {
+  min-width: 0;
+}
+
+.contact-card strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.intent-options {
+  min-width: 0;
+}
+
+.intent-options button {
+  white-space: normal;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Resume page
+   -------------------------------------------------------------------------- */
+
+.resume-hold {
+  min-width: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Case studies
+   -------------------------------------------------------------------------- */
+
+.case-study {
+  min-width: 0;
+}
+
+.case-hero {
+  min-width: 0;
+}
+
+.case-hero h1,
+.case-hero-sub,
+.case-summary,
+.case-section h2 {
+  max-width: 100%;
+  text-wrap: balance;
+}
+
+.case-hero-topline {
+  min-width: 0;
+}
+
+.case-metric-strip,
+.case-copy-grid,
+.architecture-layout,
+.metrics-explorer,
+.hood-grid,
+.system-preview-grid,
+.route-grid,
+.tech-map-row,
+.performance-grid {
+  min-width: 0;
+}
+
+.case-metric-strip > *,
+.case-copy-grid > *,
+.architecture-layout > *,
+.metrics-explorer > *,
+.hood-grid > *,
+.system-preview-grid > *,
+.route-grid > *,
+.performance-grid > * {
+  min-width: 0;
+}
+
+.architecture-nodes,
+.architecture-detail {
+  min-width: 0;
+}
+
+.architecture-node {
+  min-width: 0;
+}
+
+.architecture-node strong,
+.architecture-detail p {
+  overflow-wrap: anywhere;
+}
+
+.metrics-tabs {
+  min-width: 0;
+}
+
+.metrics-tabs button {
+  min-width: 0;
+}
+
+.metric-explanation {
+  min-width: 0;
+}
+
+.hood-grid > div {
+  min-width: 0;
+}
+
+.hood-grid strong {
+  overflow-wrap: anywhere;
+}
+
+.system-preview-grid article {
+  min-width: 0;
+}
+
+.tech-map-row > div {
+  min-width: 0;
+}
+
+.verification-flow {
+  min-width: 0;
+}
+
+.case-actions {
+  min-width: 0;
+}
+
+.case-actions .button {
+  white-space: nowrap;
+}
+
+.next-project {
+  min-width: 0;
+}
+
+.next-project strong {
+  min-width: 0;
+  text-wrap: balance;
+}
+
+/*=================
+   LARGE DESKTOP — 1440+ / ultrawide
+  ================= */
+
+@media (min-width: 1440px) {
+  :root {
+    --responsive-gutter: clamp(28px, 3vw, 56px);
+  }
+
+  .hero-layout {
+    grid-template-columns: minmax(0, 1.04fr) minmax(560px, .96fr);
+  }
+
+  .project-main-grid {
+    grid-template-columns: minmax(0, .92fr) minmax(560px, 1.08fr);
+  }
+
+  .thinking-grid-v2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/*=================
+   DESKTOP / LAPTOP — 1180–1439
+  ================= */
+
+@media (max-width: 1439px) and (min-width: 1180px) {
+  :root {
+    --container: 1280px;
+    --responsive-gutter: clamp(22px, 2.4vw, 34px);
+  }
+
+  .hero-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(470px, .92fr);
+    gap: 30px;
+  }
+
+  .hero h1 {
+    font-size: clamp(56px, 5.55vw, 82px);
+  }
+
+  .project-main-grid {
+    grid-template-columns: minmax(0, .96fr) minmax(500px, 1.04fr);
+  }
+
+  .project-copy h3 {
+    font-size: clamp(40px, 4vw, 58px);
+  }
+
+  .cta-panel-v2 {
+    align-items: center;
+  }
+}
+
+/*=================
+   SMALL LAPTOP — 1024–1179
+  ================= */
+
+@media (max-width: 1179px) and (min-width: 1024px) {
+  :root {
+    --container: 1120px;
+    --responsive-gutter: 24px;
+  }
+
+  .hero-layout {
+    grid-template-columns: minmax(0, .96fr) minmax(420px, 1.04fr);
+    gap: 26px;
+  }
+
+  .hero h1 {
+    font-size: clamp(50px, 5.5vw, 68px);
+  }
+
+  .hero-intro {
+    font-size: 17px;
+  }
+
+  .pipeline-grid-ux {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pipeline-node-ux:nth-child(even) {
+    transform: none;
+  }
+
+  .project-main-grid {
+    grid-template-columns: minmax(0, .9fr) minmax(470px, 1.1fr);
+  }
+
+  .project-copy {
+    padding: 30px;
+  }
+
+  .project-copy h3 {
+    font-size: clamp(36px, 4vw, 50px);
+  }
+
+  .metric-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .capability-row-v2 {
+    grid-template-columns: 52px 210px minmax(0, 1fr);
+    gap: 14px 18px;
+  }
+
+  .cta-panel-v2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 190px;
+  }
+
+  .cta-actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/*=================
+   TABLET LANDSCAPE / SMALL LAPTOP — 900–1023
+  ================= */
+
+@media (max-width: 1023px) and (min-width: 900px) {
+  :root {
+    --responsive-gutter: 22px;
+  }
+
+  .hero-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    max-width: 820px;
+  }
+
+  .hero-visual-wrap {
+    width: 100%;
+  }
+
+  .pipeline-grid-ux {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .project-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-copy {
+    padding: 34px;
+  }
+
+  .project-visual-v2 {
+    margin: 0 18px 18px;
+  }
+
+  .thinking-grid-v2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .capability-row-v2 {
+    grid-template-columns: 52px 210px minmax(0, 1fr);
+  }
+
+  .cta-panel-v2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 200px;
+  }
+
+  .cta-actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .case-rail {
+    display: none;
+  }
+}
+
+/*=================
+   TABLET PORTRAIT — 768–899
+  ================= */
+
+@media (max-width: 899px) and (min-width: 768px) {
+  :root {
+    --responsive-gutter: 20px;
+  }
+
+  .hero-layout,
+  .intro-section-v2,
+  .project-main-grid,
+  .about-story-grid,
+  .architecture-layout,
+  .metrics-explorer {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 8vw, 72px);
+  }
+
+  .hero-copy {
+    max-width: 760px;
+  }
+
+  .pipeline-grid-ux {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-copy {
+    padding: 32px;
+  }
+
+  .project-visual-v2 {
+    margin: 0 16px 16px;
+  }
+
+  .thinking-grid-v2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .capability-row-v2 {
+    grid-template-columns: 46px 190px minmax(0, 1fr);
+    gap: 12px 16px;
+  }
+
+  .about-preview-grid {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .cta-panel-v2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .cta-panel-v2 h2 {
+    font-size: clamp(40px, 6vw, 54px);
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 190px;
+  }
+
+  .cta-actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .quick-scan-content {
+    grid-template-columns: 1fr;
+  }
+
+  .quick-scan-proof {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .case-rail {
+    display: none;
+  }
+
+  .case-copy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .system-preview-grid,
+  .route-grid,
+  .about-principles {
+    grid-template-columns: 1fr;
+  }
+
+  .system-preview-grid article + article,
+  .route-grid article + article,
+  .about-principles article + article {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}
+
+/*=================
+   LARGE MOBILE / SMALL TABLET — 600–767
+  ================= */
+
+@media (max-width: 767px) and (min-width: 600px) {
+  :root {
+    --responsive-gutter: 18px;
+  }
+
+  .hero-layout,
+  .intro-section-v2,
+  .project-main-grid,
+  .about-preview-grid,
+  .about-story-grid,
+  .architecture-layout,
+  .metrics-explorer,
+  .case-copy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: clamp(46px, 9.5vw, 62px);
+  }
+
+  .hero-actions {
+    align-items: stretch;
+  }
+
+  .hero-actions .button,
+  .hero-actions button {
+    flex: 1 1 220px;
+    justify-content: center;
+  }
+
+  .pipeline-grid-ux {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .credibility-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-copy {
+    padding: 28px;
+  }
+
+  .project-visual-v2 {
+    margin: 0 14px 14px;
+  }
+
+  .metric-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .thinking-grid-v2 {
+    grid-template-columns: 1fr;
+  }
+
+  .capability-row-v2 {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 10px 14px;
+  }
+
+  .capability-row-v2 p {
+    grid-column: 2;
+  }
+
+  .cta-panel-v2 {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-actions {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cta-actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .quick-scan-proof {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quick-scan-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .case-rail {
+    display: none;
+  }
+
+  .case-metric-strip,
+  .performance-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .system-preview-grid,
+  .route-grid,
+  .about-principles {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*=================
+   MOBILE — 420–599
+  ================= */
+
+@media (max-width: 599px) and (min-width: 420px) {
+  :root {
+    --responsive-gutter: 14px;
+  }
+
+  .smart-nav-shell {
+    min-height: 68px;
+  }
+
+  .smart-signature {
+    font-size: 15px;
+  }
+
+  .current-section-chip {
+    display: none;
+  }
+
+  .hero-v2 {
+    padding-top: 28px;
+  }
+
+  .hero h1 {
+    font-size: clamp(42px, 11vw, 56px);
+    line-height: .99;
+  }
+
+  .hero-intro {
+    font-size: 16px;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions .button,
+  .hero-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .pipeline-grid-ux {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-system-header-ux {
+    flex-direction: column;
+  }
+
+  .hero-system-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .credibility-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .section-heading-row {
+    display: block;
+  }
+
+  .section-note {
+    margin-top: 14px;
+    max-width: none;
+  }
+
+  .project-copy {
+    padding: 24px 20px;
+  }
+
+  .project-copy h3 {
+    font-size: clamp(36px, 9.5vw, 48px);
+  }
+
+  .metric-row {
+    grid-template-columns: 1fr;
+  }
+
+  .metric + .metric {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .project-visual-v2 {
+    margin: 0 10px 10px;
+  }
+
+  .project-action-row-ux {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .thinking-grid-v2 {
+    grid-template-columns: 1fr;
+  }
+
+  .capability-row-v2 {
+    grid-template-columns: 34px minmax(0, 1fr);
+  }
+
+  .capability-row-v2 p {
+    grid-column: 2;
+  }
+
+  .about-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-panel-v2 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .cta-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .cta-actions .button,
+  .cta-actions .button-primary {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    white-space: nowrap;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .quick-scan-proof {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quick-scan-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .quick-scan-actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .case-rail {
+    display: none;
+  }
+
+  .case-hero-topline {
+    flex-direction: column;
+  }
+
+  .case-metric-strip,
+  .case-copy-grid,
+  .performance-grid,
+  .hood-grid,
+  .metrics-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .case-metric-strip > div + div,
+  .performance-grid div + div {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+  }
+
+  .hood-grid > div:nth-child(odd) {
+    border-right: 0;
+  }
+
+  .system-preview-grid,
+  .route-grid,
+  .about-principles {
+    grid-template-columns: 1fr;
+  }
+
+  .case-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .case-actions .button {
+    width: 100%;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .next-project {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*=================
+   SMALL MOBILE — <=419
+  ================= */
+
+@media (max-width: 419px) {
+  :root {
+    --responsive-gutter: 10px;
+  }
+
+  .smart-nav-shell {
+    min-height: 66px;
+    gap: 8px;
+  }
+
+  .smart-signature {
+    font-size: 14px;
+    letter-spacing: .06em;
+  }
+
+  .smart-signature::after {
+    display: none;
+  }
+
+  .current-section-chip {
+    display: none;
+  }
+
+  .theme-trigger,
+  .nav-menu-button {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .theme-trigger span {
+    display: none;
+  }
+
+  .hero-v2 {
+    padding-top: 24px;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 12vw, 48px);
+    line-height: 1;
+  }
+
+  .hero-intro {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions .button,
+  .hero-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .availability {
+    font-size: 12px;
+  }
+
+  .pipeline-grid-ux,
+  .system-kpi-row-ux,
+  .credibility-inner,
+  .metric-row,
+  .thinking-grid-v2,
+  .quick-scan-proof,
+  .contact-grid,
+  .case-metric-strip,
+  .case-copy-grid,
+  .performance-grid,
+  .hood-grid,
+  .metrics-tabs,
+  .system-preview-grid,
+  .route-grid,
+  .about-principles {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-system-header-ux,
+  .quick-scan-footer,
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-system-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .section-block {
+    padding-block: 42px;
+  }
+
+  .section-heading-row {
+    display: block;
+  }
+
+  .section-note {
+    margin-top: 12px;
+    max-width: none;
+  }
+
+  .project-copy {
+    padding: 22px 16px;
+  }
+
+  .project-copy h3 {
+    font-size: clamp(34px, 10vw, 44px);
+  }
+
+  .metric + .metric {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .project-visual-v2 {
+    margin: 0 8px 8px;
+  }
+
+  .flow-list-v2 {
+    padding: 16px 12px 8px;
+  }
+
+  .flow-detail {
+    margin: 0 12px 14px;
+  }
+
+  .project-action-row-ux {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .capability-row-v2 {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .capability-row-v2 p {
+    grid-column: 2;
+  }
+
+  .about-preview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-panel-v2 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+  }
+
+  .cta-actions,
+  .quick-scan-actions,
+  .case-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .cta-actions .button,
+  .quick-scan-actions .button,
+  .case-actions .button {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .quick-scan-panel-v4 {
+    width: calc(100% - 8px);
+    border-radius: 18px;
+  }
+
+  .quick-scan-copy {
+    padding: 42px 18px 24px;
+  }
+
+  .quick-scan-copy h2 {
+    font-size: clamp(34px, 11vw, 46px);
+  }
+
+  .quick-scan-proof article {
+    min-height: 110px;
+  }
+
+  .footer-links {
+    width: 100%;
+  }
+
+  .case-rail {
+    display: none;
+  }
+
+  .case-hero-topline {
+    flex-direction: column;
+  }
+
+  .case-hero h1 {
+    font-size: clamp(42px, 12vw, 58px);
+  }
+
+  .case-hero-sub {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+
+  .case-metric-strip > div + div,
+  .performance-grid div + div {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+  }
+
+  .hood-grid > div:nth-child(odd) {
+    border-right: 0;
+  }
+
+  .tech-map-row {
+    grid-template-columns: 1fr;
+  }
+
+  .verification-flow {
+    justify-content: flex-start;
+  }
+
+  .next-project {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Orientation / height pressure
+   -------------------------------------------------------------------------- */
+
+@media (max-height: 700px) and (min-width: 900px) {
+  .hero-v2 {
+    padding-top: 24px;
+  }
+
+  .hero-layout {
+    align-items: start;
+  }
+
+  .hero-system-stage-ux {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .quick-scan-wrap {
+    margin-top: 16px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion compatibility
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

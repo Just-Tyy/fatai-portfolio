@@ -1,0 +1,802 @@
+/*=================
+   KOMOLAFE PORTFOLIO — PREMIUM INTERACTION / HOVER SYSTEM
+   --------------------------------------------------------------------------
+   Principles:
+   1. Hover confirms interactivity; it never hides essential information.
+   2. Large surfaces move less than small controls.
+   3. Emerald is used for interaction/selection, not decorative overload.
+   4. Keyboard focus receives equivalent clarity.
+   5. Touch devices do not inherit desktop hover choreography.
+  ================= */
+
+:root {
+  --hover-duration-fast: 150ms;
+  --hover-duration: 210ms;
+  --hover-duration-slow: 280ms;
+  --hover-ease: cubic-bezier(.2, .75, .25, 1);
+  --hover-lift-sm: -2px;
+  --hover-lift-md: -4px;
+  --hover-border: color-mix(in srgb, var(--accent) 42%, var(--line-strong));
+  --hover-surface: color-mix(in srgb, var(--surface-strong) 92%, var(--accent-soft));
+  --hover-shadow-sm: 0 10px 28px rgba(8, 20, 13, .08);
+  --hover-shadow-md: 0 18px 48px rgba(8, 20, 13, .11);
+}
+
+.dark {
+  --hover-shadow-sm: 0 12px 30px rgba(0, 0, 0, .24);
+  --hover-shadow-md: 0 20px 54px rgba(0, 0, 0, .32);
+}
+
+/* --------------------------------------------------------------------------
+   Global interactive baseline
+   -------------------------------------------------------------------------- */
+
+a,
+button,
+.button,
+.contact-card,
+.project-showcase,
+.thinking-card,
+.pipeline-node,
+.flow-node,
+.architecture-node,
+.metrics-tabs button,
+.hood-tabs button,
+.audience-toggle button,
+.intent-options button,
+.theme-trigger,
+.theme-menu > button,
+.smart-desktop-nav a,
+.smart-mobile-links a,
+.quick-scan-button,
+.quick-github-link,
+.next-project,
+.tech-map-row strong,
+.route-grid article,
+.system-preview-grid article,
+.capability-row,
+.about-principles article {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a,
+button,
+.button,
+.text-link,
+.contact-card,
+.pipeline-node,
+.flow-node,
+.architecture-node,
+.metrics-tabs button,
+.hood-tabs button,
+.audience-toggle button,
+.intent-options button,
+.theme-trigger,
+.theme-menu > button,
+.quick-scan-button,
+.quick-github-link,
+.next-project {
+  transition:
+    color var(--hover-duration-fast) var(--hover-ease),
+    background-color var(--hover-duration) var(--hover-ease),
+    border-color var(--hover-duration) var(--hover-ease),
+    box-shadow var(--hover-duration) var(--hover-ease),
+    transform var(--hover-duration) var(--hover-ease),
+    opacity var(--hover-duration-fast) var(--hover-ease);
+}
+
+/* A matching, visible keyboard interaction state */
+a:focus-visible,
+button:focus-visible,
+.button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 70%, white);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Primary / secondary buttons
+   -------------------------------------------------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+  .button:not([aria-disabled="true"]):hover {
+    transform: translateY(var(--hover-lift-sm));
+  }
+
+  .button-primary:hover {
+    background: var(--accent-strong);
+    border-color: var(--accent-strong);
+    box-shadow:
+      var(--hover-shadow-sm),
+      0 0 0 4px var(--accent-soft);
+  }
+
+  .button-secondary:hover {
+    color: var(--text);
+    border-color: var(--hover-border);
+    background: var(--hover-surface);
+    box-shadow: var(--hover-shadow-sm);
+  }
+
+  .button-ghost:hover {
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+
+  /* Most action arrows are the last SVG inside buttons/links. */
+  .button:hover svg:last-child,
+  .text-link:hover svg:last-child,
+  .next-project:hover > svg:last-child,
+  .project-live-link:hover svg:last-child,
+  .quick-github-link:hover svg:last-child {
+    transform: translateX(3px);
+  }
+}
+
+.button svg,
+.text-link svg,
+.next-project > svg,
+.project-live-link svg,
+.quick-github-link svg {
+  transition: transform var(--hover-duration) var(--hover-ease);
+}
+
+/* --------------------------------------------------------------------------
+   Text links
+   -------------------------------------------------------------------------- */
+
+.text-link {
+  position: relative;
+  width: fit-content;
+}
+
+.text-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  border-radius: 999px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--hover-duration) var(--hover-ease);
+  opacity: .55;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .text-link:hover {
+    color: var(--accent);
+  }
+
+  .text-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Signature / brand
+   -------------------------------------------------------------------------- */
+
+.signature-brand {
+  transition:
+    color var(--hover-duration-fast) var(--hover-ease),
+    transform var(--hover-duration) var(--hover-ease);
+}
+
+.signature-brand i,
+.signature-brand::after {
+  transition:
+    width var(--hover-duration) var(--hover-ease),
+    transform var(--hover-duration) var(--hover-ease),
+    box-shadow var(--hover-duration) var(--hover-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .signature-brand:hover {
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .signature-brand:hover i {
+    width: 72px;
+  }
+
+  .signature-brand:hover::after {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 7px var(--accent-soft);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Desktop navbar
+   -------------------------------------------------------------------------- */
+
+.smart-desktop-nav a {
+  overflow: visible;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .smart-desktop-nav a:not(.active):hover {
+    color: var(--text);
+    background: var(--surface-muted);
+    transform: translateY(-1px);
+  }
+
+  .smart-desktop-nav a.active:hover {
+    box-shadow:
+      inset 0 0 0 1px color-mix(in srgb, var(--accent-strong) 70%, transparent),
+      0 8px 22px var(--accent-soft);
+  }
+
+  .nav-contact-cta:hover {
+    transform: translateY(-2px);
+    background: var(--accent-strong);
+    box-shadow:
+      var(--hover-shadow-sm),
+      0 0 0 4px var(--accent-soft);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Theme menu
+   -------------------------------------------------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+  .theme-trigger:hover {
+    transform: translateY(-1px);
+    border-color: var(--hover-border);
+    background: var(--hover-surface);
+    box-shadow: var(--hover-shadow-sm);
+  }
+
+  .theme-menu > button:hover {
+    color: var(--text);
+    background: var(--accent-soft);
+    transform: translateX(2px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Recruiter quick-scan trigger / modal actions
+   -------------------------------------------------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+  .quick-scan-button:hover {
+    transform: translateY(-2px);
+    border-color: var(--hover-border);
+    background: var(--hover-surface);
+    box-shadow: var(--hover-shadow-sm);
+  }
+
+  .quick-scan-button:hover .quick-scan-pulse {
+    box-shadow: 0 0 0 8px var(--accent-soft);
+  }
+
+  .quick-github-link:hover {
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .quick-close-v4:hover,
+  .quick-close:hover {
+    color: var(--accent);
+    border-color: var(--hover-border);
+    background: var(--accent-soft);
+    transform: rotate(4deg);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Hero HOW I BUILD interaction
+   -------------------------------------------------------------------------- */
+
+.pipeline-node-ux {
+  position: relative;
+  overflow: hidden;
+}
+
+.pipeline-node-ux::after {
+  content: "";
+  position: absolute;
+  inset: auto 12px 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--hover-duration) var(--hover-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pipeline-node-ux:hover {
+    transform: translateY(-4px);
+    border-color: var(--hover-border);
+    background: var(--hover-surface);
+    box-shadow: var(--hover-shadow-md);
+  }
+
+  .pipeline-node-ux:hover::after {
+    transform: scaleX(1);
+  }
+
+  .pipeline-node-ux:hover .pipeline-node-top i {
+    transform: scale(1.12);
+    box-shadow: 0 0 0 8px var(--accent-soft);
+  }
+}
+
+.pipeline-node-ux.active {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 35%, transparent);
+}
+
+/* --------------------------------------------------------------------------
+   Project showcase — restrained whole-card response
+   -------------------------------------------------------------------------- */
+
+.project-showcase {
+  transition:
+    border-color var(--hover-duration-slow) var(--hover-ease),
+    box-shadow var(--hover-duration-slow) var(--hover-ease),
+    transform var(--hover-duration-slow) var(--hover-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .project-showcase:hover {
+    border-color: var(--hover-border);
+    box-shadow: var(--hover-shadow-md);
+    transform: translateY(-3px);
+  }
+
+  .project-showcase:hover .project-topline {
+    color: var(--accent);
+  }
+
+  .project-showcase:hover .project-visual {
+    border-color: color-mix(in srgb, var(--accent) 35%, var(--line));
+  }
+}
+
+/* Project stages */
+.flow-node-v2 {
+  position: relative;
+  overflow: hidden;
+}
+
+.flow-node-v2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  border-radius: 999px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transition: transform var(--hover-duration) var(--hover-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .flow-node-v2:hover {
+    transform: translateX(4px);
+    border-color: var(--hover-border);
+    background: var(--hover-surface);
+  }
+
+  .flow-node-v2:hover::before {
+    transform: scaleY(1);
+  }
+
+  .flow-node-v2:hover i {
+    color: var(--accent);
+    transform: translateX(2px);
+  }
+}
+
+.flow-node-v2 i {
+  transition:
+    color var(--hover-duration-fast) var(--hover-ease),
+    transform var(--hover-duration) var(--hover-ease);
+}
+
+/* --------------------------------------------------------------------------
+   Thinking cards
+   -------------------------------------------------------------------------- */
+
+.thinking-card-v2 {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.thinking-card-v2::after {
+  content: "";
+  position: absolute;
+  inset: auto 22px 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--hover-duration) var(--hover-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .thinking-card-v2:hover {
+    background: var(--accent-soft);
+    transform: translateY(-4px);
+  }
+
+  .thinking-card-v2:hover::after {
+    transform: scaleX(1);
+  }
+
+  .thinking-card-v2:hover .thinking-number {
+    color: var(--accent);
+  }
+
+  .thinking-card-v2:hover h3 {
+    transform: translateX(3px);
+  }
+}
+
+.thinking-card-v2 h3,
+.thinking-number {
+  transition:
+    color var(--hover-duration-fast) var(--hover-ease),
+    transform var(--hover-duration) var(--hover-ease);
+}
+
+/* --------------------------------------------------------------------------
+   Capability rows
+   -------------------------------------------------------------------------- */
+
+.capability-row-v2 {
+  position: relative;
+  transition:
+    background var(--hover-duration) var(--hover-ease),
+    padding-left var(--hover-duration) var(--hover-ease);
+}
+
+.capability-row-v2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 16px;
+  bottom: 16px;
+  width: 2px;
+  border-radius: 999px;
+  background: var(--accent);
+  transform: scaleY(0);
+  transition: transform var(--hover-duration) var(--hover-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .capability-row-v2:hover {
+    background: linear-gradient(90deg, var(--accent-soft), transparent 70%);
+    padding-left: 10px;
+  }
+
+  .capability-row-v2:hover::before {
+    transform: scaleY(1);
+  }
+
+  .capability-row-v2:hover .capability-index,
+  .capability-row-v2:hover h3 {
+    color: var(--accent);
+  }
+}
+
+.capability-row-v2 h3,
+.capability-index {
+  transition: color var(--hover-duration-fast) var(--hover-ease);
+}
+
+/* --------------------------------------------------------------------------
+   CTA panel
+   -------------------------------------------------------------------------- */
+
+.cta-panel-v2 {
+  transition:
+    border-color var(--hover-duration-slow) var(--hover-ease),
+    box-shadow var(--hover-duration-slow) var(--hover-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cta-panel-v2:hover {
+    border-color: var(--hover-border);
+    box-shadow: var(--hover-shadow-md);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Contact cards
+   -------------------------------------------------------------------------- */
+
+.contact-card {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform var(--hover-duration) var(--hover-ease),
+    border-color var(--hover-duration) var(--hover-ease),
+    background var(--hover-duration) var(--hover-ease),
+    box-shadow var(--hover-duration) var(--hover-ease);
+}
+
+.contact-card::after {
+  content: "↗";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  color: var(--accent);
+  transform: translateY(-50%) translateX(-5px);
+  opacity: 0;
+  transition:
+    opacity var(--hover-duration-fast) var(--hover-ease),
+    transform var(--hover-duration) var(--hover-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .contact-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--hover-border);
+    background: var(--hover-surface);
+    box-shadow: var(--hover-shadow-sm);
+  }
+
+  .contact-card:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .contact-card:hover svg {
+    color: var(--accent);
+    transform: scale(1.07);
+  }
+}
+
+.contact-card svg {
+  transition:
+    color var(--hover-duration-fast) var(--hover-ease),
+    transform var(--hover-duration) var(--hover-ease);
+}
+
+/* --------------------------------------------------------------------------
+   Case study architecture nodes
+   -------------------------------------------------------------------------- */
+
+.architecture-node {
+  position: relative;
+  overflow: hidden;
+}
+
+.architecture-node::after {
+  content: "";
+  position: absolute;
+  inset: auto 14px 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--hover-duration) var(--hover-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .architecture-node:hover {
+    transform: translateX(5px);
+    border-color: var(--hover-border);
+    background: var(--hover-surface);
+    box-shadow: var(--hover-shadow-sm);
+  }
+
+  .architecture-node:hover::after {
+    transform: scaleX(1);
+  }
+
+  .architecture-node:hover i {
+    transform: translateX(3px);
+  }
+}
+
+.architecture-node i {
+  transition: transform var(--hover-duration) var(--hover-ease);
+}
+
+/* Metrics explorer */
+@media (hover: hover) and (pointer: fine) {
+  .metrics-tabs button:hover {
+    color: var(--text);
+    background: var(--accent-soft);
+  }
+
+  .metrics-tabs button:hover strong {
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+}
+
+.metrics-tabs strong {
+  transition:
+    color var(--hover-duration-fast) var(--hover-ease),
+    transform var(--hover-duration) var(--hover-ease);
+}
+
+/* Overview / technical toggles */
+@media (hover: hover) and (pointer: fine) {
+  .hood-tabs button:hover,
+  .audience-toggle button:hover,
+  .intent-options button:hover {
+    border-color: var(--hover-border);
+    color: var(--text);
+    background: var(--accent-soft);
+    transform: translateY(-1px);
+  }
+}
+
+/* Tech tags */
+.tech-map-row strong {
+  transition:
+    color var(--hover-duration-fast) var(--hover-ease),
+    border-color var(--hover-duration) var(--hover-ease),
+    background var(--hover-duration) var(--hover-ease),
+    transform var(--hover-duration) var(--hover-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .tech-map-row strong:hover {
+    color: var(--accent);
+    border-color: var(--hover-border);
+    background: var(--accent-soft);
+    transform: translateY(-2px);
+  }
+}
+
+/* Route / product experience cards */
+.route-grid article,
+.system-preview-grid article,
+.about-principles article {
+  transition:
+    background var(--hover-duration) var(--hover-ease),
+    transform var(--hover-duration) var(--hover-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .route-grid article:hover,
+  .system-preview-grid article:hover,
+  .about-principles article:hover {
+    background: linear-gradient(180deg, var(--accent-soft), transparent);
+    transform: translateY(-3px);
+  }
+
+  .route-grid article:hover h3,
+  .system-preview-grid article:hover h3,
+  .about-principles article:hover h2 {
+    color: var(--accent);
+  }
+}
+
+.route-grid h3,
+.system-preview-grid h3,
+.about-principles h2 {
+  transition: color var(--hover-duration-fast) var(--hover-ease);
+}
+
+/* --------------------------------------------------------------------------
+   Next project card
+   -------------------------------------------------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+  .next-project:hover {
+    transform: translateY(-4px);
+    border-color: var(--hover-border);
+    box-shadow: var(--hover-shadow-md);
+    background:
+      radial-gradient(circle at 90% 50%, var(--accent-soft), transparent 36%),
+      var(--surface);
+  }
+
+  .next-project:hover strong {
+    color: var(--accent);
+  }
+}
+
+.next-project strong {
+  transition: color var(--hover-duration-fast) var(--hover-ease);
+}
+
+/* --------------------------------------------------------------------------
+   Footer links
+   -------------------------------------------------------------------------- */
+
+.footer-links a {
+  position: relative;
+  transition:
+    color var(--hover-duration-fast) var(--hover-ease),
+    transform var(--hover-duration) var(--hover-ease);
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--hover-duration) var(--hover-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .footer-links a:hover {
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .footer-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Mobile/collapsed nav feedback
+   -------------------------------------------------------------------------- */
+
+@media (hover: hover) and (pointer: fine) {
+  .current-section-chip:hover,
+  .nav-menu-button:hover {
+    border-color: var(--hover-border);
+    background: var(--hover-surface);
+    box-shadow: var(--hover-shadow-sm);
+  }
+
+  .smart-mobile-links a:hover {
+    color: var(--accent);
+    padding-left: 6px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Reduced motion
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+
+  .button,
+  .text-link,
+  .signature-brand,
+  .smart-desktop-nav a,
+  .pipeline-node-ux,
+  .project-showcase,
+  .flow-node-v2,
+  .thinking-card-v2,
+  .capability-row-v2,
+  .contact-card,
+  .architecture-node,
+  .next-project,
+  .route-grid article,
+  .system-preview-grid article,
+  .about-principles article,
+  .footer-links a {
+    transition-duration: 0.01ms !important;
+  }
+
+  .button:hover,
+  .pipeline-node-ux:hover,
+  .project-showcase:hover,
+  .thinking-card-v2:hover,
+  .contact-card:hover,
+  .architecture-node:hover,
+  .next-project:hover {
+    transform: none !important;
+  }
+}

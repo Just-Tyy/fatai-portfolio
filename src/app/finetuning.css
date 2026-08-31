@@ -1,0 +1,35 @@
+/* Final portfolio fine-tuning.
+   Lock primary identity as Data Scientist while preserving capability breadth. */
+
+.hero-copy .eyebrow {
+  font-size: 12px;
+  letter-spacing: .18em;
+}
+
+.hero-intro {
+  max-width: 690px;
+}
+
+.availability {
+  color: var(--text-soft);
+  font-weight: 650;
+}
+
+.section-note {
+  color: var(--text-faint);
+  font-weight: 600;
+}
+
+.quick-scan-footer > div:first-child strong {
+  font-size: 15px;
+}
+
+.footer-links a {
+  font-weight: 650;
+}
+
+@media (max-width: 760px) {
+  .availability {
+    line-height: 1.45;
+  }
+}

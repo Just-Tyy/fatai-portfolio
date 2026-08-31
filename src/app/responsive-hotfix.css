@@ -1,0 +1,138 @@
+/*=================
+   RESPONSIVE HOTFIX
+   Targets split-screen / laptop / tablet pressure without redesigning UI.
+   Imported after responsive-lock.css.
+  ================= */
+
+/* CTA must NEVER collapse into the cramped two-line layout shown previously. */
+.cta-actions .button,
+.cta-actions .button-primary,
+.cta-actions .button-secondary {
+  min-width: max-content;
+  white-space: nowrap;
+}
+
+/* Desktop through tablet:
+   if the CTA cannot comfortably remain side-by-side, stack its action area
+   rather than squeezing the button text. */
+@media (max-width: 1180px) and (min-width: 768px) {
+  .cta-panel-v2 {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(210px, 230px) !important;
+    align-items: center !important;
+    gap: clamp(24px, 3vw, 42px) !important;
+  }
+
+  .cta-actions {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+  }
+
+  .cta-actions .button,
+  .cta-actions .button-primary,
+  .cta-actions .button-secondary {
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 48px;
+    padding-inline: 18px !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* Split-screen frequently lands around 600–900 CSS px.
+   Give CTA the whole row once its copy would otherwise be squeezed. */
+@media (max-width: 860px) {
+  .cta-panel-v2 {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 24px !important;
+  }
+
+  .cta-actions {
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .cta-actions .button {
+    width: 100% !important;
+    min-width: 0 !important;
+    justify-content: center !important;
+  }
+}
+
+/* Mobile: single-column actions are more usable and prevent any squeeze. */
+@media (max-width: 560px) {
+  .cta-actions {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cta-actions .button {
+    white-space: normal !important;
+    text-align: center;
+    line-height: 1.25;
+  }
+}
+
+/* Split-screen safety for surrounding sections. */
+@media (max-width: 1100px) {
+  .about-preview-grid {
+    gap: 26px !important;
+  }
+
+  .about-preview-grid > p {
+    max-width: 100%;
+  }
+}
+
+/* Keep project/card content from looking cramped around laptop/tablet widths. */
+@media (max-width: 1180px) and (min-width: 900px) {
+  .project-main-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .project-visual-v2 {
+    margin: 0 18px 18px !important;
+  }
+
+  .project-copy {
+    padding: 34px !important;
+  }
+
+  .project-action-row-ux {
+    gap: 18px 34px !important;
+  }
+}
+
+/* Hero split-screen:
+   stack before both halves become uncomfortably narrow. */
+@media (max-width: 1050px) {
+  .hero-layout {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-copy {
+    max-width: 820px;
+  }
+
+  .hero-visual-wrap {
+    width: 100%;
+  }
+}
+
+/* Keep tablet typography readable after stacking. */
+@media (max-width: 900px) {
+  .hero h1 {
+    max-width: 800px;
+  }
+
+  .section-heading-row {
+    align-items: flex-start;
+  }
+}

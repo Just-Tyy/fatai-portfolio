@@ -1,0 +1,53 @@
+/* Routing and CTA polish */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px;
+}
+
+#work {
+  scroll-margin-top: 92px;
+}
+
+.project-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 22px;
+}
+
+.project-action-row .text-link {
+  min-height: 42px;
+  padding: 0 2px;
+}
+
+.project-action-row .project-live-link {
+  color: var(--accent);
+}
+
+.project-action-row .project-live-link:hover {
+  color: var(--accent-strong);
+}
+
+.case-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .project-action-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .case-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .case-actions .button {
+    width: 100%;
+  }
+}

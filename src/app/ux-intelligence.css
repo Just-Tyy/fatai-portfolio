@@ -1,0 +1,265 @@
+/* Final UX Intelligence Pass
+   Keeps the current visual identity while making interactions self-explanatory. */
+
+/* Hero system */
+.hero-system-header-ux {
+  min-height: 82px;
+  align-items: flex-start;
+}
+
+.hero-system-header-ux > div {
+  display: grid;
+  gap: 6px;
+}
+
+.hero-system-kicker,
+.hero-system-context {
+  color: var(--accent);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .15em;
+}
+
+.hero-system-header-ux strong {
+  max-width: 420px;
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.hero-system-context {
+  color: var(--text-faint);
+}
+
+.hero-system-stage-ux {
+  min-height: 510px;
+}
+
+.pipeline-grid-ux {
+  margin-top: 34px;
+}
+
+.pipeline-node-ux {
+  appearance: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  color: var(--text);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.pipeline-node-ux:hover {
+  transform: translateY(-3px);
+  border-color: var(--line-strong);
+  box-shadow: 0 16px 40px rgba(0,0,0,.08);
+}
+
+.pipeline-node-ux.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.pipeline-node-ux.active .pipeline-node-top i {
+  box-shadow: 0 0 0 7px var(--accent-soft);
+}
+
+.hero-system-detail {
+  margin-top: 58px;
+  padding: 18px 20px;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 24px;
+  align-items: start;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.hero-system-detail > div {
+  display: grid;
+  gap: 6px;
+}
+
+.hero-system-detail span {
+  color: var(--text-faint);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: .13em;
+}
+
+.hero-system-detail strong {
+  font-size: 14px;
+}
+
+.hero-system-detail p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.system-kpi-row-ux {
+  position: static;
+  margin-top: 18px;
+}
+
+/* Project action semantics */
+.project-action-row-ux {
+  align-items: flex-start;
+}
+
+.project-action {
+  display: grid;
+  gap: 5px;
+}
+
+.project-action small {
+  color: var(--text-faint);
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.flow-detail-ux p {
+  max-width: 520px;
+}
+
+/* Stronger focus feedback */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 70%, white);
+  outline-offset: 3px;
+}
+
+/* Current location in topbar should be unmistakable */
+.smart-desktop-nav a.active {
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 72%, transparent);
+}
+
+.smart-desktop-nav a[aria-current="location"]::after {
+  content: "CURRENT";
+  position: absolute;
+  top: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 6px;
+  border-radius: 6px;
+  background: var(--surface-strong);
+  border: 1px solid var(--line);
+  color: var(--text-faint);
+  font-size: 7px;
+  font-weight: 850;
+  letter-spacing: .11em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.smart-desktop-nav a[aria-current="location"]:hover::after {
+  opacity: 1;
+}
+
+/* Case study navigation clarity */
+.case-rail-label {
+  color: var(--text-faint);
+  font-weight: 850;
+}
+
+.case-rail a.active {
+  font-weight: 800;
+}
+
+.case-rail a.active span:first-child {
+  color: var(--accent);
+}
+
+/* External/system CTA language gets stronger grouping */
+.case-actions .button-primary,
+.project-live-link {
+  font-weight: 800;
+}
+
+/* Touch target baseline */
+button,
+.button,
+.smart-desktop-nav a,
+.smart-mobile-links a,
+.theme-trigger,
+.contact-card {
+  min-height: 44px;
+}
+
+/* Responsive hero system */
+@media (max-width: 980px) {
+  .hero-system-stage-ux {
+    min-height: 0;
+  }
+
+  .hero-system-detail {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .system-kpi-row-ux {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-system-header-ux {
+    min-height: 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pipeline-grid-ux {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 28px;
+  }
+
+  .pipeline-node-ux {
+    min-height: 128px;
+  }
+
+  .hero-system-detail {
+    margin-top: 24px;
+    padding: 16px;
+  }
+
+  .system-kpi-row-ux {
+    grid-template-columns: 1fr;
+  }
+
+  .system-kpi-row-ux > div + div {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+    padding-left: 0;
+    padding-top: 11px;
+  }
+
+  .project-action-row-ux {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .pipeline-grid-ux {
+    grid-template-columns: 1fr;
+  }
+
+  .pipeline-node-ux {
+    min-height: 108px;
+  }
+
+  .project-action {
+    width: 100%;
+  }
+
+  .project-action .text-link {
+    width: fit-content;
+  }
+}

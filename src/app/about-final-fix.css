@@ -1,0 +1,172 @@
+/*=================
+   FINAL ABOUT FIX — LOCKED
+   --------------------------------------------------------------------------
+   Purpose:
+   - Keep the existing About design.
+   - Keep THE SHORT VERSION in the same visual family as ABOUT.
+   - Make THE SHORT VERSION deliberately smaller / quieter.
+   - Prevent earlier .eyebrow rules from overriding its size.
+   - Keep About prose clean and left aligned.
+  ================= */
+
+
+/* --------------------------------------------------------------------------
+   THE SHORT VERSION
+   Exact selector + !important is intentional here because this file is the
+   final override layer and earlier global .eyebrow rules are stronger than
+   the previous About-specific values.
+   -------------------------------------------------------------------------- */
+
+.about-story-lead > p.eyebrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: fit-content !important;
+
+  min-height: 20px !important;
+  height: 20px !important;
+
+  margin: 0 0 14px !important;
+  padding: 0 7px !important;
+
+  border: 1px solid
+    color-mix(in srgb, var(--accent) 32%, var(--line)) !important;
+
+  border-radius: 999px !important;
+
+  background:
+    color-mix(in srgb, var(--accent-soft) 68%, transparent) !important;
+
+  color: var(--accent-strong) !important;
+
+  font-size: 7px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.10em !important;
+  line-height: 1 !important;
+
+  text-transform: uppercase !important;
+
+  flex: 0 0 auto !important;
+}
+
+
+/* Small dot — same language as ABOUT, lower visual weight. */
+
+.about-story-lead > p.eyebrow::before {
+  content: "" !important;
+
+  width: 3px !important;
+  height: 3px !important;
+
+  flex: 0 0 3px !important;
+
+  margin-right: 5px !important;
+
+  border-radius: 50% !important;
+
+  background: var(--accent) !important;
+
+  box-shadow:
+    0 0 0 2px
+    color-mix(in srgb, var(--accent-soft) 70%, transparent) !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   Short-version copy
+   -------------------------------------------------------------------------- */
+
+.about-short-version-copy {
+  max-width: 56ch !important;
+
+  margin: 0 !important;
+
+  color: var(--text) !important;
+
+  font-size: clamp(16px, 1.25vw, 19px) !important;
+  line-height: 1.72 !important;
+  letter-spacing: -0.012em !important;
+
+  text-align: left !important;
+  text-justify: auto !important;
+
+  hyphens: none !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   About narrative — keep editorial left alignment
+   -------------------------------------------------------------------------- */
+
+.about-story-grid p,
+.about-story-lead p,
+.about-page p {
+  text-justify: auto !important;
+  hyphens: none !important;
+  word-break: normal !important;
+}
+
+.about-story-grid > div:last-child p,
+.about-story-grid > section:last-child p {
+  text-align: left !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   Neutralize obsolete helper class from older batches
+   -------------------------------------------------------------------------- */
+
+.about-short-version-label {
+  all: unset !important;
+}
+
+
+/* --------------------------------------------------------------------------
+   Tablet
+   Do NOT enlarge the badge again.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .about-short-version-copy {
+    max-width: 100% !important;
+  }
+
+  .about-story-lead > p.eyebrow {
+    min-height: 20px !important;
+    height: 20px !important;
+    padding-inline: 7px !important;
+    font-size: 7px !important;
+    letter-spacing: 0.10em !important;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Mobile
+   Keep it compact even on small screens.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 599px) {
+  .about-story-lead > p.eyebrow {
+    min-height: 19px !important;
+    height: 19px !important;
+
+    margin-bottom: 12px !important;
+    padding-inline: 6px !important;
+
+    font-size: 6.5px !important;
+    letter-spacing: 0.09em !important;
+  }
+
+  .about-story-lead > p.eyebrow::before {
+    width: 3px !important;
+    height: 3px !important;
+    flex-basis: 3px !important;
+    margin-right: 5px !important;
+  }
+
+  .about-short-version-copy {
+    font-size: 16px !important;
+  }
+}

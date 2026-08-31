@@ -1,0 +1,420 @@
+/*=================
+   KOMOLAFE PORTFOLIO — CONTENT FORMATTING / READABILITY POLISH
+   --------------------------------------------------------------------------
+   Design identity is LOCKED.
+   This layer improves:
+   - long-form readability
+   - selective text justification
+   - section-label visibility
+   - secondary copy contrast
+   - paragraph rhythm
+   - responsive reading widths
+  ================= */
+
+/* --------------------------------------------------------------------------
+   Global readable-copy baseline
+   -------------------------------------------------------------------------- */
+
+:root {
+  --reading-width: 72ch;
+  --reading-width-tight: 62ch;
+}
+
+.page-lead,
+.hero-intro,
+.intro-copy p,
+.about-preview-grid p,
+.about-story-grid p,
+.about-principles p,
+.case-summary,
+.case-copy-grid p,
+.audience-prose p,
+.hood-grid p,
+.architecture-detail p,
+.metric-explanation p,
+.project-copy > p,
+.flow-detail p,
+.system-preview-grid p,
+.route-grid p,
+.contact-page .page-lead,
+.resume-hold p {
+  color: var(--text-soft);
+  font-size: clamp(15px, 1.15vw, 18px);
+  line-height: 1.72;
+  letter-spacing: -0.012em;
+}
+
+/* Keep long paragraphs from stretching endlessly on large displays. */
+.intro-copy p,
+.about-story-grid p,
+.about-preview-grid p,
+.case-copy-grid p,
+.audience-prose p,
+.hood-grid p,
+.architecture-detail p,
+.metric-explanation p {
+  max-width: var(--reading-width);
+}
+
+/* --------------------------------------------------------------------------
+   Smart long-form justification
+   --------------------------------------------------------------------------
+   Justification is only applied to narrative/technical prose where line
+   lengths are large enough to benefit from it.
+   It is deliberately disabled on narrow screens to avoid ugly word spacing.
+   -------------------------------------------------------------------------- */
+
+@media (min-width: 900px) {
+  .about-story-grid p,
+  .intro-copy p,
+  .case-copy-grid p,
+  .audience-prose p,
+  .hood-grid p,
+  .architecture-detail p,
+  .metric-explanation p {
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+  }
+}
+
+@media (max-width: 899px) {
+  .about-story-grid p,
+  .intro-copy p,
+  .case-copy-grid p,
+  .audience-prose p,
+  .hood-grid p,
+  .architecture-detail p,
+  .metric-explanation p {
+    text-align: left;
+    hyphens: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Paragraph rhythm
+   -------------------------------------------------------------------------- */
+
+.intro-copy,
+.about-story-grid,
+.case-copy-grid,
+.audience-prose,
+.hood-grid,
+.architecture-detail,
+.metric-explanation {
+  row-gap: clamp(16px, 2vw, 26px);
+}
+
+.intro-copy p,
+.about-story-grid p,
+.case-copy-grid p,
+.audience-prose p,
+.hood-grid p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Give consecutive prose blocks breathing room. */
+.about-story-grid p + p,
+.intro-copy p + p,
+.audience-prose p + p {
+  margin-top: 1.05em;
+}
+
+/* --------------------------------------------------------------------------
+   Section labels / eyebrows
+   --------------------------------------------------------------------------
+   The previous labels were too small and too faint.
+   Keep the same language and accent color, but give them a real visual role.
+   -------------------------------------------------------------------------- */
+
+.eyebrow,
+.modal-kicker,
+.hero-system-kicker,
+.hero-system-context,
+.case-rail-label,
+.project-visual-header span,
+.project-topline span,
+.flow-detail > span,
+.hero-system-detail span,
+.quick-scan-footer > div:first-child span,
+.quick-scan-proof article div > span,
+.theme-menu-label {
+  font-weight: 850;
+  letter-spacing: 0.135em;
+  text-transform: uppercase;
+}
+
+/* Primary section eyebrows become compact readable badges. */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 28px;
+  margin-bottom: 18px;
+  padding: 0 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--line));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent-soft) 68%, transparent);
+  color: var(--accent-strong);
+  font-size: 10px;
+  line-height: 1;
+}
+
+/* Add a small visual anchor without introducing a new icon language. */
+.eyebrow::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-soft) 70%, transparent);
+}
+
+/* Hero identity should remain cleaner than normal section labels. */
+.hero-copy > * .eyebrow,
+.hero-copy .eyebrow {
+  padding-left: 9px;
+}
+
+/* Technical micro-labels stay compact but become legible. */
+.modal-kicker,
+.hero-system-kicker,
+.case-rail-label,
+.project-visual-header span,
+.flow-detail > span,
+.hero-system-detail span,
+.quick-scan-footer > div:first-child span,
+.quick-scan-proof article div > span,
+.theme-menu-label {
+  color: var(--text-faint);
+  font-size: clamp(9px, .72vw, 10px);
+  line-height: 1.35;
+}
+
+/* Important technical label accents */
+.modal-kicker,
+.hero-system-kicker,
+.flow-detail > span {
+  color: var(--accent);
+}
+
+/* --------------------------------------------------------------------------
+   About page — stronger editorial hierarchy
+   -------------------------------------------------------------------------- */
+
+.about-page .page-title,
+.about-page h1,
+.page-shell.about-page h1 {
+  max-width: 17ch;
+  text-wrap: balance;
+}
+
+.about-page .page-lead,
+.about-page .about-intro,
+.about-page [class*="intro"] p {
+  max-width: 56ch;
+}
+
+.about-story-grid {
+  align-items: start;
+}
+
+/* The first narrative paragraph reads as the editorial lead. */
+.about-story-grid > :first-child p:first-child,
+.about-story-grid > p:first-child {
+  color: var(--text);
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.68;
+}
+
+/* If the About layout contains a short-version label inside the story area,
+   don't let it disappear visually. */
+.about-story-grid .eyebrow,
+.about-page .eyebrow {
+  margin-bottom: 18px;
+}
+
+/* --------------------------------------------------------------------------
+   Homepage intro / About preview
+   -------------------------------------------------------------------------- */
+
+.intro-section-v2 h2,
+.about-preview-v2 h2,
+.thinking-section-v2 h2,
+.capability-section-v2 h2,
+.work-section-v2 h2 {
+  text-wrap: balance;
+}
+
+.intro-copy {
+  max-width: var(--reading-width);
+}
+
+.about-preview-grid > p {
+  max-width: 66ch;
+}
+
+/* --------------------------------------------------------------------------
+   Selected systems / project copy
+   -------------------------------------------------------------------------- */
+
+.project-copy > p {
+  max-width: 62ch;
+  line-height: 1.66;
+}
+
+.project-topline span {
+  color: var(--text-faint);
+  font-size: clamp(9px, .7vw, 10px);
+}
+
+.project-topline span:last-child {
+  text-align: right;
+}
+
+.project-action small {
+  color: var(--text-faint);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+/* --------------------------------------------------------------------------
+   Case studies
+   -------------------------------------------------------------------------- */
+
+.case-summary {
+  max-width: 76ch;
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.72;
+}
+
+.case-section > .eyebrow {
+  margin-bottom: 20px;
+}
+
+.case-section h2 {
+  margin-top: 0;
+  text-wrap: balance;
+}
+
+.case-copy-grid {
+  column-gap: clamp(34px, 5vw, 80px);
+}
+
+.case-copy-grid p {
+  line-height: 1.76;
+}
+
+/* --------------------------------------------------------------------------
+   Capabilities — improve scanability
+   -------------------------------------------------------------------------- */
+
+.capability-row-v2 p {
+  color: var(--text-soft);
+  line-height: 1.64;
+}
+
+.capability-index,
+.thinking-number {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+/* --------------------------------------------------------------------------
+   Thinking cards
+   -------------------------------------------------------------------------- */
+
+.thinking-card-v2 p {
+  color: var(--text-soft);
+  line-height: 1.66;
+}
+
+/* --------------------------------------------------------------------------
+   Contact / CTA / footer secondary copy
+   -------------------------------------------------------------------------- */
+
+.cta-panel-v2 > div > p:not(.eyebrow),
+.footer p,
+.contact-card span {
+  color: var(--text-soft);
+}
+
+.footer p {
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   Contrast refinement for light theme
+   -------------------------------------------------------------------------- */
+
+:root {
+  --text-soft-readable: color-mix(in srgb, var(--text) 76%, var(--background));
+  --text-faint-readable: color-mix(in srgb, var(--text) 58%, var(--background));
+}
+
+:not(.dark) .section-note,
+:not(.dark) .project-action small,
+:not(.dark) .project-topline span,
+:not(.dark) .hero-system-context,
+:not(.dark) .case-rail-label,
+:not(.dark) .theme-menu-label {
+  color: var(--text-faint-readable);
+}
+
+:not(.dark) .page-lead,
+:not(.dark) .intro-copy p,
+:not(.dark) .about-story-grid p,
+:not(.dark) .about-preview-grid p,
+:not(.dark) .case-copy-grid p,
+:not(.dark) .project-copy > p,
+:not(.dark) .thinking-card-v2 p,
+:not(.dark) .capability-row-v2 p {
+  color: var(--text-soft-readable);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive reading behavior
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 899px) {
+  .eyebrow {
+    min-height: 27px;
+    margin-bottom: 16px;
+    font-size: 9px;
+  }
+
+  .about-story-grid p,
+  .intro-copy p,
+  .case-copy-grid p,
+  .project-copy > p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 599px) {
+  .eyebrow {
+    padding-inline: 9px;
+    letter-spacing: .115em;
+  }
+
+  .page-lead,
+  .hero-intro,
+  .intro-copy p,
+  .about-preview-grid p,
+  .about-story-grid p,
+  .case-summary,
+  .case-copy-grid p,
+  .audience-prose p,
+  .hood-grid p,
+  .project-copy > p {
+    font-size: 15px;
+    line-height: 1.66;
+  }
+
+  .about-story-grid > :first-child p:first-child,
+  .about-story-grid > p:first-child {
+    font-size: 17px;
+  }
+}

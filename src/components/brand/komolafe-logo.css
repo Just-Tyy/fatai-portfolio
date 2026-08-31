@@ -1,0 +1,565 @@
+.komolafe-logo-link {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  min-width: 0;
+
+  color: inherit;
+  text-decoration: none;
+
+  isolation: isolate;
+}
+
+
+/*
+   INVISIBLE BRAND ENERGY FIELD
+*/
+
+.komolafe-logo-link::before {
+  content: "";
+
+  position: absolute;
+
+  left: 5%;
+  top: 50%;
+
+  width: 48%;
+  height: 150%;
+
+  border-radius: 999px;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      color-mix(in srgb, var(--accent) 18%, transparent) 0%,
+      color-mix(in srgb, var(--accent) 7%, transparent) 38%,
+      transparent 72%
+    );
+
+  opacity: 0;
+
+  filter: blur(12px);
+
+  transform:
+    translateY(-50%)
+    scale(0.65);
+
+  pointer-events: none;
+
+  transition:
+    opacity 280ms ease,
+    transform 420ms cubic-bezier(.16, 1, .3, 1);
+}
+
+
+/*
+   LOGO BASE
+*/
+
+.komolafe-logo {
+  position: relative;
+  z-index: 1;
+
+  display: block;
+
+  width: clamp(132px, 12vw, 176px);
+  height: auto;
+
+  overflow: visible;
+
+  color: var(--text);
+
+  transform-origin: left center;
+
+  transition:
+    transform 420ms cubic-bezier(.16, 1, .3, 1),
+    filter 350ms ease;
+}
+
+
+/*
+   WORDMARK
+*/
+
+.komolafe-logo__letters {
+  fill: currentColor;
+
+  transform-origin: center;
+  transform-box: fill-box;
+
+  transition:
+    transform 420ms cubic-bezier(.16, 1, .3, 1);
+}
+
+
+/*
+   EMERALD ACCENTS
+*/
+
+.komolafe-logo__accent,
+.komolafe-logo__orbit-dot {
+  fill: var(--accent);
+}
+
+.komolafe-logo__accent {
+  transform-box: fill-box;
+  transform-origin: center;
+
+  transition:
+    transform 360ms cubic-bezier(.16, 1, .3, 1),
+    opacity 260ms ease,
+    filter 260ms ease;
+}
+
+
+/*
+   LETTER CUTS
+*/
+
+.komolafe-logo__cut {
+  fill:
+    var(
+      --bg,
+      var(--background, #eef2ed)
+    );
+}
+
+
+/*
+   MAIN ORBIT
+*/
+
+.komolafe-logo__orbit-path {
+  fill: none;
+
+  stroke: var(--accent);
+  stroke-width: 2.15;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  vector-effect: non-scaling-stroke;
+
+  opacity: 0.78;
+
+  transition:
+    stroke-width 300ms ease,
+    opacity 300ms ease,
+    filter 300ms ease;
+}
+
+
+/*
+   ENERGY TRACER
+   Hidden during idle state.
+*/
+
+.komolafe-logo__orbit-tracer {
+  fill: none;
+
+  stroke:
+    color-mix(
+      in srgb,
+      var(--accent) 82%,
+      white
+    );
+
+  stroke-width: 3.2;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  vector-effect: non-scaling-stroke;
+
+  stroke-dasharray: 32 298;
+  stroke-dashoffset: 330;
+
+  opacity: 0;
+
+  filter:
+    drop-shadow(
+      0 0 3px
+      color-mix(
+        in srgb,
+        var(--accent) 65%,
+        transparent
+      )
+    );
+
+  pointer-events: none;
+}
+
+
+/*
+   INITIAL PAGE-LOAD ANIMATION
+*/
+
+.komolafe-logo.is-animated
+.komolafe-logo__orbit-path {
+  stroke-dasharray: 330;
+  stroke-dashoffset: 330;
+
+  animation:
+    komolafe-orbit-draw
+      1.15s
+      cubic-bezier(.22, .8, .3, 1)
+      .18s
+      forwards,
+
+    komolafe-orbit-breathe
+      5.5s
+      ease-in-out
+      1.5s
+      infinite;
+}
+
+
+.komolafe-logo.is-animated
+.komolafe-logo__orbit-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+
+  opacity: 0;
+
+  animation:
+    komolafe-dot-arrive
+      .36s
+      ease-out
+      1.12s
+      forwards,
+
+    komolafe-dot-pulse
+      4.2s
+      ease-in-out
+      1.6s
+      infinite;
+}
+
+
+.komolafe-logo.is-animated
+.komolafe-logo__accent {
+  animation:
+    komolafe-accent-breathe
+      6s
+      ease-in-out
+      1.3s
+      infinite;
+}
+
+
+/*
+   LOAD ANIMATIONS
+*/
+
+@keyframes komolafe-orbit-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+@keyframes komolafe-orbit-breathe {
+  0%,
+  100% {
+    opacity: 0.76;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+}
+
+
+@keyframes komolafe-dot-arrive {
+  from {
+    opacity: 0;
+    transform: scale(0.35);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@keyframes komolafe-dot-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.07);
+  }
+}
+
+
+@keyframes komolafe-accent-breathe {
+  0%,
+  100% {
+    opacity: 0.88;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+/*
+   HOVER — BRAND ACTIVATION
+*/
+
+@media (hover: hover) and (pointer: fine) {
+
+  /*
+   * Slight lift + micro zoom.
+   * Enough to feel alive without jumping.
+   */
+  .komolafe-logo-link:hover .komolafe-logo {
+    transform:
+      translateY(-2px)
+      scale(1.035);
+
+    filter:
+      drop-shadow(
+        0 5px 10px
+        color-mix(
+          in srgb,
+          var(--accent) 10%,
+          transparent
+        )
+      );
+  }
+
+
+  /*
+   * Tiny expansion gives the geometric
+   * lettering an expensive "activation" feel.
+   */
+  .komolafe-logo-link:hover
+  .komolafe-logo__letters {
+    transform: scaleX(1.012);
+  }
+
+
+  /*
+   * Reveal background energy field.
+   */
+  .komolafe-logo-link:hover::before {
+    opacity: 1;
+
+    transform:
+      translateY(-50%)
+      scale(1);
+  }
+
+
+  /*
+   * Main orbit becomes clearer,
+   * but still stays thin.
+   */
+  .komolafe-logo-link:hover
+  .komolafe-logo__orbit-path {
+    stroke-width: 2.35;
+
+    opacity: 1;
+
+    filter:
+      drop-shadow(
+        0 0 2px
+        color-mix(
+          in srgb,
+          var(--accent) 45%,
+          transparent
+        )
+      );
+  }
+
+
+  /*
+   * This is the good stuff:
+   * a light streak races around the orbit.
+   */
+  .komolafe-logo-link:hover
+  .komolafe-logo__orbit-tracer {
+    opacity: 1;
+
+    animation:
+      komolafe-orbit-energy-run
+      .9s
+      cubic-bezier(.2, .7, .2, 1)
+      infinite;
+  }
+
+
+  /*
+   * Emerald accents wake up independently.
+   */
+  .komolafe-logo-link:hover
+  .komolafe-logo__accent {
+    opacity: 1;
+
+    transform:
+      scale(1.08);
+
+    filter:
+      drop-shadow(
+        0 0 2.5px
+        color-mix(
+          in srgb,
+          var(--accent) 55%,
+          transparent
+        )
+      );
+  }
+
+
+  /*
+   * Orbit node becomes the energy focal point.
+   */
+  .komolafe-logo-link:hover
+  .komolafe-logo__orbit-dot {
+    animation:
+      komolafe-hover-node
+      .85s
+      ease-in-out
+      infinite;
+
+    filter:
+      drop-shadow(
+        0 0 4px
+        color-mix(
+          in srgb,
+          var(--accent) 72%,
+          transparent
+        )
+      );
+  }
+}
+
+
+/*
+   HOVER ANIMATIONS
+*/
+
+@keyframes komolafe-orbit-energy-run {
+
+  from {
+    stroke-dashoffset: 330;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+@keyframes komolafe-hover-node {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.28);
+  }
+}
+
+
+/*
+   COMPACT NAVBAR
+*/
+
+.komolafe-logo.is-compact {
+  width:
+    clamp(
+      120px,
+      10vw,
+      154px
+    );
+}
+
+
+/*
+   KEYBOARD FOCUS
+*/
+
+.komolafe-logo-link:focus-visible {
+  outline:
+    2px solid
+    var(--accent);
+
+  outline-offset: 5px;
+
+  border-radius: 6px;
+}
+
+
+/*
+   MOBILE
+*/
+
+@media (max-width: 680px) {
+
+  .komolafe-logo {
+    width: 132px;
+  }
+
+  .komolafe-logo__orbit-path {
+    stroke-width: 1.9;
+  }
+}
+
+
+@media (max-width: 420px) {
+
+  .komolafe-logo {
+    width: 122px;
+  }
+
+  .komolafe-logo__orbit-path {
+    stroke-width: 1.8;
+  }
+}
+
+
+/*
+   REDUCED MOTION
+*/
+
+@media (prefers-reduced-motion: reduce) {
+
+  .komolafe-logo,
+  .komolafe-logo__letters,
+  .komolafe-logo__orbit-path,
+  .komolafe-logo__orbit-tracer,
+  .komolafe-logo__orbit-dot,
+  .komolafe-logo__accent {
+    animation: none !important;
+    transition: none !important;
+  }
+
+
+  .komolafe-logo__orbit-path {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+
+    opacity: 0.78 !important;
+  }
+
+
+  .komolafe-logo__orbit-tracer {
+    display: none !important;
+  }
+
+
+  .komolafe-logo__orbit-dot {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+  }
+}

@@ -1,0 +1,249 @@
+/* Final density + spacing + hierarchy pass.
+   No brand redesign. No typography redesign. */
+
+.hero-v2 {
+  padding-top: clamp(34px, 4vw, 62px);
+  padding-bottom: 24px;
+}
+
+.hero-intro {
+  margin-top: 20px;
+}
+
+.hero-actions {
+  margin-top: 24px;
+}
+
+.availability {
+  margin-top: 16px;
+}
+
+.quick-scan-wrap {
+  margin-top: 22px;
+}
+
+.credibility-inner {
+  min-height: 56px;
+}
+
+/* Global rhythm */
+.section-block {
+  padding-block: clamp(56px, 5.2vw, 88px);
+}
+
+.section-block + .section-block {
+  border-top: 0;
+}
+
+.intro-section-v2 {
+  gap: clamp(34px, 4vw, 64px);
+}
+
+.intro-copy {
+  gap: 12px;
+}
+
+.section-heading-row {
+  margin-bottom: 0;
+}
+
+.section-note {
+  max-width: 250px;
+}
+
+.work-section-v2 .project-stack {
+  margin-top: 34px;
+  gap: 22px;
+}
+
+/* Project cards: significantly less dead space */
+.project-showcase-v2 .project-copy {
+  padding: clamp(28px, 3.4vw, 48px);
+}
+
+.project-showcase-v2 .project-copy > p {
+  margin-top: 16px;
+}
+
+.project-showcase-v2 .metric-row {
+  margin-top: 26px;
+}
+
+.project-showcase-v2 .project-action-row {
+  margin-top: 22px;
+}
+
+.project-visual-v2 {
+  margin: 16px;
+}
+
+.flow-list-v2 {
+  padding: 22px 24px 10px;
+}
+
+.flow-node-v2 {
+  min-height: 56px;
+}
+
+.flow-detail {
+  margin: 0 24px 22px;
+  padding: 15px 16px;
+}
+
+.project-topline {
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+/* Thinking */
+.thinking-grid-v2 {
+  margin-top: 36px;
+}
+
+.thinking-card-v2 {
+  min-height: 225px;
+  padding: 24px;
+}
+
+.thinking-card-v2 h3 {
+  margin-top: 34px;
+}
+
+/* Skills */
+.capability-list {
+  margin-top: 38px;
+}
+
+.capability-row-v2 {
+  min-height: 92px;
+}
+
+/* About */
+.about-preview-v2 .about-preview-grid {
+  margin-top: 28px;
+}
+
+.about-preview-v2 {
+  padding-bottom: clamp(50px, 5vw, 76px);
+}
+
+/* CTA */
+.cta-section-v2 {
+  padding-top: 12px;
+  padding-bottom: clamp(54px, 5vw, 82px);
+}
+
+.cta-panel-v2 {
+  padding: clamp(30px, 4vw, 50px);
+}
+
+/* Footer */
+.footer {
+  padding-block: 30px;
+}
+
+/* Case-study density */
+.case-study {
+  padding-top: clamp(52px, 5vw, 80px);
+  padding-bottom: 110px;
+}
+
+.back-link {
+  margin-bottom: 36px;
+}
+
+.case-hero {
+  padding-bottom: clamp(64px, 7vw, 105px);
+}
+
+.case-summary {
+  margin-top: 28px;
+}
+
+.case-metric-strip {
+  margin-top: 42px;
+}
+
+.case-section {
+  padding-block: clamp(66px, 7vw, 104px);
+}
+
+.case-copy-grid {
+  margin-top: 34px;
+}
+
+.architecture-explorer,
+.metrics-explorer,
+.hood-panel,
+.audience-toggle-panel,
+.system-preview {
+  margin-top: 40px;
+}
+
+.tech-map {
+  margin-top: 40px;
+}
+
+.route-grid {
+  margin-top: 40px;
+}
+
+.verification-flow {
+  margin-top: 40px;
+}
+
+.next-project {
+  margin-top: 34px;
+  min-height: 180px;
+}
+
+/* Mobile/tablet rhythm */
+@media (max-width: 980px) {
+  .section-block {
+    padding-block: 58px;
+  }
+
+  .project-showcase-v2 .project-copy {
+    padding: 30px;
+  }
+
+  .project-visual-v2 {
+    margin: 0 14px 14px;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-v2 {
+    padding-top: 30px;
+  }
+
+  .section-block {
+    padding-block: 52px;
+  }
+
+  .thinking-card-v2 {
+    min-height: 0;
+  }
+
+  .capability-row-v2 {
+    min-height: 84px;
+  }
+
+  .case-section {
+    padding-block: 58px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-block {
+    padding-block: 46px;
+  }
+
+  .project-showcase-v2 .project-copy {
+    padding: 24px 20px;
+  }
+
+  .case-section {
+    padding-block: 50px;
+  }
+}

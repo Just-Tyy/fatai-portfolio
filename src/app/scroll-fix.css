@@ -1,0 +1,23 @@
+/* Ensure programmatic and anchor navigation land cleanly below the sticky header. */
+
+#work,
+#approach,
+#capabilities,
+#about,
+#home {
+  scroll-margin-top: 92px;
+}
+
+.hero-actions button {
+  font-family: inherit;
+}
+
+@media (max-width: 760px) {
+  #work,
+  #approach,
+  #capabilities,
+  #about,
+  #home {
+    scroll-margin-top: 78px;
+  }
+}
