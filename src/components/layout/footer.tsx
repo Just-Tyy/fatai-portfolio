@@ -38,15 +38,8 @@ export function Footer() {
 
             <div className="grand-footer-identity">
               <p className="grand-footer-kicker">DATA SCIENTIST</p>
-
-              <h2>
-                Good models deserve better
-                <span>than dying inside notebooks.</span>
-              </h2>
-
-              <p className="grand-footer-copy">
-                I build machine learning and applied AI systems that survive
-                the trip from idea to something people can actually use.
+              <p className="grand-footer-brand-line">
+                Building systems beyond notebooks.
               </p>
             </div>
           </div>
@@ -94,16 +87,11 @@ export function Footer() {
 
                 <div>
                   <strong>Open to opportunities</strong>
-                  <p>
-                    Data Science · Machine Learning · Applied AI
-                  </p>
+                  <p>Data Science · Machine Learning · Applied AI</p>
                 </div>
               </div>
 
-              <Link
-                className="grand-footer-contact-link"
-                href="/contact"
-              >
+              <Link className="grand-footer-contact-link" href="/contact">
                 Start a conversation
                 <span aria-hidden="true">↗</span>
               </Link>
@@ -117,9 +105,7 @@ export function Footer() {
             <span>Lagos, Nigeria</span>
           </div>
 
-          <p className="grand-footer-signoff">
-            Built beyond notebooks.
-          </p>
+          <p className="grand-footer-signoff">Built beyond notebooks.</p>
 
           <p className="grand-footer-copyright">
             © {new Date().getFullYear()} KOMOLAFE

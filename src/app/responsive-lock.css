@@ -1448,3 +1448,37 @@ canvas {
     scroll-behavior: auto;
   }
 }
+
+/* Mobile credibility rail: compact 2 x 2 layout */
+@media (max-width: 599px) {
+  .credibility-inner {
+    min-height: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0;
+    padding: 0;
+  }
+
+  .credibility-inner span {
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 8px;
+    text-align: center;
+    white-space: normal;
+    font-size: 9px;
+    font-weight: 800;
+    line-height: 1.35;
+    letter-spacing: 0.13em;
+  }
+
+  .credibility-inner span:nth-child(odd) {
+    border-right: 1px solid var(--line);
+  }
+
+  .credibility-inner span:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line);
+  }
+}
+

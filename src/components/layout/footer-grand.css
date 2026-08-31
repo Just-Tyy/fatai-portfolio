@@ -1,23 +1,8 @@
-/* ==========================================================================
-   KOMOLAFE — GRAND FOOTER
-   --------------------------------------------------------------------------
-   This layer intentionally sits beside the existing global footer rules.
-   Existing .footer-links hover behavior remains active.
-   ========================================================================== */
-
 .grand-footer {
   position: relative;
   overflow: hidden;
-
-  padding:
-    clamp(68px, 7vw, 112px)
-    0
-    clamp(26px, 3vw, 42px);
-
-  border-top:
-    1px solid
-    color-mix(in srgb, var(--accent) 18%, var(--line));
-
+  padding: clamp(68px, 7vw, 112px) 0 clamp(26px, 3vw, 42px);
+  border-top: 1px solid color-mix(in srgb, var(--accent) 18%, var(--line));
   background:
     linear-gradient(
       180deg,
@@ -26,64 +11,35 @@
     );
 }
 
-
-/* --------------------------------------------------------------------------
-   Ambient orbital signature
-   -------------------------------------------------------------------------- */
-
 .grand-footer-orbit {
   position: absolute;
-
   left: clamp(-210px, -9vw, -100px);
   top: clamp(-170px, -8vw, -90px);
-
   width: clamp(380px, 35vw, 620px);
   aspect-ratio: 1;
-
   pointer-events: none;
-
   opacity: 0.34;
-
   transform: rotate(-18deg);
 }
 
 .grand-footer-orbit-line {
   position: absolute;
   inset: 12%;
-
-  border:
-    1px solid
-    color-mix(in srgb, var(--accent) 34%, transparent);
-
+  border: 1px solid color-mix(in srgb, var(--accent) 34%, transparent);
   border-radius: 50%;
-
-  transform:
-    scaleY(.46)
-    rotate(14deg);
+  transform: scaleY(.46) rotate(14deg);
 }
 
 .grand-footer-orbit-node {
   position: absolute;
-
   left: 66%;
   top: 18%;
-
   width: 8px;
   height: 8px;
-
   border-radius: 50%;
-
   background: var(--accent);
-
-  box-shadow:
-    0 0 0 8px
-    color-mix(in srgb, var(--accent-soft) 68%, transparent);
+  box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent-soft) 68%, transparent);
 }
-
-
-/* --------------------------------------------------------------------------
-   Shell
-   -------------------------------------------------------------------------- */
 
 .grand-footer-shell {
   position: relative;
@@ -92,20 +48,10 @@
 
 .grand-footer-main {
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 1.2fr)
-    minmax(480px, .8fr);
-
+  grid-template-columns: minmax(0, 1.2fr) minmax(480px, .8fr);
   gap: clamp(64px, 8vw, 130px);
-
   align-items: end;
 }
-
-
-/* --------------------------------------------------------------------------
-   Brand / closing statement
-   -------------------------------------------------------------------------- */
 
 .grand-footer-brand {
   max-width: 790px;
@@ -113,9 +59,7 @@
 
 .grand-footer-logo-wrap {
   width: fit-content;
-
-  margin-bottom:
-    clamp(34px, 4vw, 54px);
+  margin-bottom: clamp(24px, 3vw, 38px);
 }
 
 .grand-footer-logo-wrap .komolafe-logo {
@@ -123,74 +67,28 @@
 }
 
 .grand-footer-kicker {
-  margin: 0 0 14px !important;
-
+  margin: 0 0 8px !important;
   color: var(--accent-strong) !important;
-
   font-size: 9px !important;
   font-weight: 850;
   letter-spacing: .18em;
   line-height: 1.2;
-
   text-transform: uppercase;
 }
 
-.grand-footer-identity h2 {
-  max-width: 760px;
-
-  margin: 0;
-
-  color: var(--text);
-
-  font-family:
-    var(--font-display),
-    sans-serif;
-
-  font-size:
-    clamp(42px, 5vw, 74px);
-
-  font-weight: 620;
-
-  line-height: .98;
-
-  letter-spacing: -.055em;
-
-  text-wrap: balance;
-}
-
-.grand-footer-identity h2 span {
-  display: block;
-
-  color: var(--accent-strong);
-}
-
-.grand-footer-copy {
-  max-width: 630px;
-
-  margin: 24px 0 0 !important;
-
+.grand-footer-brand-line {
+  margin: 8px 0 0 !important;
   color: var(--text-soft) !important;
-
-  font-size:
-    clamp(14px, 1.2vw, 17px) !important;
-
-  line-height: 1.72 !important;
+  font-size: clamp(15px, 1.25vw, 18px) !important;
+  font-weight: 560;
+  line-height: 1.5 !important;
+  letter-spacing: -0.02em;
 }
-
-
-/* --------------------------------------------------------------------------
-   Right-side columns
-   -------------------------------------------------------------------------- */
 
 .grand-footer-columns {
   display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(120px, 1fr));
-
-  gap:
-    clamp(34px, 4vw, 54px)
-    clamp(28px, 4vw, 48px);
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: clamp(34px, 4vw, 54px) clamp(28px, 4vw, 48px);
 }
 
 .grand-footer-column {
@@ -199,20 +97,15 @@
 
 .grand-footer-column-label {
   margin: 0 0 20px !important;
-
   color: var(--text-faint) !important;
-
   font-size: 8px !important;
   font-weight: 850;
-
   letter-spacing: .17em;
-
   text-transform: uppercase;
 }
 
 .grand-footer-links {
   display: grid;
-
   gap: 13px;
 }
 
@@ -220,150 +113,96 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 18px;
-
   width: 100%;
-
   color: var(--text-soft);
-
   font-size: 13px;
   font-weight: 700;
-
   padding-bottom: 7px;
 }
 
 .grand-footer-links a > span:last-child {
   color: var(--text-faint);
-
   transition:
     color var(--hover-duration-fast, 150ms) ease,
     transform var(--hover-duration, 210ms) ease;
 }
 
-
-/* --------------------------------------------------------------------------
-   Availability
-   -------------------------------------------------------------------------- */
-
 .grand-footer-availability {
   grid-column: 1 / -1;
-
   padding-top: 30px;
-
   border-top: 1px solid var(--line);
 }
 
 .grand-footer-status {
   display: flex;
   align-items: flex-start;
-
   gap: 12px;
 }
 
 .grand-footer-status-dot {
   flex: 0 0 auto;
-
   width: 7px;
   height: 7px;
-
   margin-top: 6px;
-
   border-radius: 50%;
-
   background: var(--accent);
-
-  box-shadow:
-    0 0 0 6px
-    var(--accent-soft);
+  box-shadow: 0 0 0 6px var(--accent-soft);
 }
 
 .grand-footer-status strong {
   display: block;
-
   color: var(--text);
-
   font-size: 13px;
 }
 
 .grand-footer-status p {
   margin: 6px 0 0 !important;
-
   color: var(--text-faint) !important;
-
   font-size: 10px !important;
-
   line-height: 1.55 !important;
 }
 
 .grand-footer-contact-link {
   position: relative;
-
   display: inline-flex;
   align-items: center;
-
   gap: 10px;
-
   margin-top: 24px;
-
   color: var(--accent-strong);
-
   font-size: 12px;
   font-weight: 800;
 }
 
 .grand-footer-contact-link::after {
   content: "";
-
   position: absolute;
-
   left: 0;
   bottom: -5px;
-
   width: 100%;
   height: 1px;
-
   background: var(--accent);
-
   transform: scaleX(.22);
   transform-origin: left center;
-
   transition:
     transform
     var(--hover-duration, 210ms)
     var(--hover-ease, ease);
 }
 
-
-/* --------------------------------------------------------------------------
-   Bottom rail
-   -------------------------------------------------------------------------- */
-
 .grand-footer-bottom {
   display: grid;
-
-  grid-template-columns:
-    minmax(0, 1fr)
-    auto
-    minmax(0, 1fr);
-
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   gap: 28px;
-
   align-items: end;
-
-  margin-top:
-    clamp(58px, 6vw, 86px);
-
-  padding-top:
-    clamp(22px, 2.5vw, 34px);
-
+  margin-top: clamp(58px, 6vw, 86px);
+  padding-top: clamp(22px, 2.5vw, 34px);
   border-top: 1px solid var(--line);
 }
 
 .grand-footer-person {
   display: flex;
   flex-direction: column;
-
   gap: 5px;
 }
 
@@ -375,38 +214,25 @@
 .grand-footer-copyright,
 .grand-footer-signoff {
   color: var(--text-faint);
-
   font-size: 9px;
-
   letter-spacing: .06em;
 }
 
 .grand-footer-signoff {
   margin: 0 !important;
-
   text-align: center;
-
   font-style: italic;
 }
 
 .grand-footer-copyright {
   margin: 0 !important;
-
   text-align: right;
 }
 
-
-/* --------------------------------------------------------------------------
-   Premium hover — preserves existing footer-link language and upgrades it
-   -------------------------------------------------------------------------- */
-
 @media (hover: hover) and (pointer: fine) {
-
   .grand-footer-links a:hover > span:last-child {
     color: var(--accent);
-
-    transform:
-      translate(3px, -2px);
+    transform: translate(3px, -2px);
   }
 
   .grand-footer-contact-link:hover::after {
@@ -414,8 +240,7 @@
   }
 
   .grand-footer-contact-link:hover > span {
-    transform:
-      translate(3px, -2px);
+    transform: translate(3px, -2px);
   }
 
   .grand-footer-contact-link > span {
@@ -425,45 +250,28 @@
       var(--hover-ease, ease);
   }
 
-  .grand-footer:hover
-  .grand-footer-orbit {
+  .grand-footer:hover .grand-footer-orbit {
     opacity: .58;
   }
 
-  .grand-footer:hover
-  .grand-footer-orbit-line {
-    animation:
-      grand-footer-orbit-drift
-      8s
-      linear
-      infinite;
+  .grand-footer:hover .grand-footer-orbit-line {
+    animation: grand-footer-orbit-drift 8s linear infinite;
   }
 
-  .grand-footer:hover
-  .grand-footer-orbit-node {
-    animation:
-      grand-footer-node-pulse
-      2.8s
-      ease-in-out
-      infinite;
+  .grand-footer:hover .grand-footer-orbit-node {
+    animation: grand-footer-node-pulse 2.8s ease-in-out infinite;
   }
 }
-
 
 @keyframes grand-footer-orbit-drift {
   from {
-    transform:
-      scaleY(.46)
-      rotate(14deg);
+    transform: scaleY(.46) rotate(14deg);
   }
 
   to {
-    transform:
-      scaleY(.46)
-      rotate(374deg);
+    transform: scaleY(.46) rotate(374deg);
   }
 }
-
 
 @keyframes grand-footer-node-pulse {
   0%,
@@ -476,16 +284,9 @@
   }
 }
 
-
-/* --------------------------------------------------------------------------
-   Tablet / laptop
-   -------------------------------------------------------------------------- */
-
 @media (max-width: 1080px) {
-
   .grand-footer-main {
     grid-template-columns: 1fr;
-
     align-items: start;
   }
 
@@ -494,128 +295,148 @@
   }
 
   .grand-footer-columns {
-    grid-template-columns:
-      repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .grand-footer-availability {
     grid-column: auto;
-
     padding-top: 0;
-
     border-top: 0;
   }
 }
 
-
-/* --------------------------------------------------------------------------
-   Tablet portrait / large mobile
-   -------------------------------------------------------------------------- */
-
 @media (max-width: 760px) {
-
   .grand-footer {
-    padding-top: 64px;
+    padding-top: 58px;
   }
 
   .grand-footer-main {
-    gap: 54px;
+    gap: 46px;
   }
 
   .grand-footer-columns {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .grand-footer-availability {
     grid-column: 1 / -1;
-
-    padding-top: 28px;
-
+    padding-top: 24px;
     border-top: 1px solid var(--line);
-  }
-
-  .grand-footer-bottom {
-    grid-template-columns: 1fr 1fr;
-
-    align-items: start;
-  }
-
-  .grand-footer-signoff {
-    grid-column: 1 / -1;
-    grid-row: 1;
-
-    text-align: left;
-  }
-
-  .grand-footer-copyright {
-    text-align: right;
   }
 }
 
-
-/* --------------------------------------------------------------------------
-   Mobile
-   -------------------------------------------------------------------------- */
-
-@media (max-width: 520px) {
-
+@media (max-width: 599px) {
   .grand-footer {
-    padding-top: 54px;
+    padding-top: 46px;
+    padding-bottom: 24px;
   }
 
-  .grand-footer-logo-wrap {
-    margin-bottom: 30px;
-  }
-
-  .grand-footer-logo-wrap .komolafe-logo {
-    width: 170px;
-  }
-
-  .grand-footer-identity h2 {
-    font-size:
-      clamp(38px, 11vw, 52px);
-  }
-
-  .grand-footer-columns {
-    grid-template-columns: 1fr;
-
+  .grand-footer-main {
     gap: 34px;
   }
 
+  .grand-footer-logo-wrap {
+    margin-bottom: 16px;
+  }
+
+  .grand-footer-logo-wrap .komolafe-logo {
+    width: 176px;
+  }
+
+  .grand-footer-kicker {
+    margin-bottom: 6px !important;
+  }
+
+  .grand-footer-brand-line {
+    margin-top: 6px !important;
+    font-size: 14px !important;
+  }
+
+  .grand-footer-columns {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 24px;
+  }
+
+  .grand-footer-column-label {
+    margin-bottom: 12px !important;
+  }
+
+  .grand-footer-links {
+    gap: 6px;
+  }
+
+  .grand-footer-links a {
+    min-height: 36px;
+    padding: 5px 0;
+    font-size: 12px;
+  }
+
   .grand-footer-availability {
-    grid-column: auto;
+    grid-column: 1 / -1;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+  }
+
+  .grand-footer-status {
+    gap: 10px;
+  }
+
+  .grand-footer-status p {
+    font-size: 10px !important;
+  }
+
+  .grand-footer-contact-link {
+    margin-top: 16px;
   }
 
   .grand-footer-bottom {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px 16px;
+    margin-top: 32px;
+    padding-top: 20px;
+  }
 
-    gap: 14px;
+  .grand-footer-person {
+    gap: 3px;
   }
 
   .grand-footer-signoff {
-    grid-column: auto;
-    grid-row: auto;
-  }
-
-  .grand-footer-copyright {
+    grid-column: 1;
+    grid-row: 2;
     text-align: left;
   }
 
-  .grand-footer-orbit {
-    left: -260px;
+  .grand-footer-copyright {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: end;
+    text-align: right;
+  }
 
-    opacity: .22;
+  .grand-footer-orbit {
+    left: -275px;
+    top: -165px;
+    opacity: 0.15;
   }
 }
 
+@media (max-width: 420px) {
+  .grand-footer-columns {
+    gap: 22px 18px;
+  }
 
-/* --------------------------------------------------------------------------
-   Reduced motion
-   -------------------------------------------------------------------------- */
+  .grand-footer-links a {
+    font-size: 11px;
+  }
+
+  .grand-footer-logo-wrap .komolafe-logo {
+    width: 165px;
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
-
   .grand-footer-orbit,
   .grand-footer-orbit-line,
   .grand-footer-orbit-node,
