@@ -256,7 +256,7 @@ export default function Home() {
 
               <a
                 className="button button-secondary"
-                href="https://www.linkedin.com/in/fataikomolafe"
+                href="https://www.linkedin.com/fatai-komolafe"
                 target="_blank"
                 rel="noreferrer"
               >

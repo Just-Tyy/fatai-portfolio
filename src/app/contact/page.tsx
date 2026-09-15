@@ -38,7 +38,7 @@ export default function ContactPage() {
 
         <a
           className="contact-card"
-          href="https://www.linkedin.com/in/fataikomolafe"
+          href="https://www.linkedin.com/fatai-komolafe"
           target="_blank"
           rel="noreferrer"
         >

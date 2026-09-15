@@ -16,7 +16,7 @@ const footerSocial = [
     label: "GitHub",
   },
   {
-    href: "https://www.linkedin.com/in/fataikomolafe",
+    href: "https://www.linkedin.com/fatai-komolafe",
     label: "LinkedIn",
   },
 ];
